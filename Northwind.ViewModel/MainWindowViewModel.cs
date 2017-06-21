@@ -1,19 +1,22 @@
-﻿using Northwind.Data;
-using System;
+﻿using Northwind.Application;
+using Northwind.Data;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Northwind.ViewModel
 {
     public class MainWindowViewModel
     {
+        private readonly IUIDataProvider _dataProvider;
+
+        public string Name { get { return "Northwind"; } }
+        public string ControlPanelName { get { return "Control Panel"; } }
+
         private IList<Customers> _customers;
 
         public IList<Customers> Customers
         {
-          get
+            get
             {
                 if (_customers == null)
                     GetCustomers();
@@ -22,9 +25,13 @@ namespace Northwind.ViewModel
             }
         }
 
+        public MainWindowViewModel(IUIDataProvider dataProvider)
+        {
+            _dataProvider = dataProvider;
+        }
         private void GetCustomers()
         {
-            _customers = new NORTHWNDEntities().Customers.ToList();
+            _customers = _dataProvider.GetCustomers();
         }
     }
 }

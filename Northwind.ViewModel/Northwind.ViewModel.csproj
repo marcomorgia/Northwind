@@ -54,14 +54,18 @@
     <Compile Include="ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Northwind.Data\Northwind.Data.csproj">
-      <Project>{24b116e7-fba4-40f8-aaae-7bf2c2596aa8}</Project>
-      <Name>Northwind.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Northwind.Application\Northwind.Application.csproj">
+      <Project>{ecec70c1-892a-4e7e-99ec-51c37f44e5d7}</Project>
+      <Name>Northwind.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Northwind.Data\Northwind.Data.csproj">
+      <Project>{24B116E7-FBA4-40F8-AAAE-7BF2C2596AA8}</Project>
+      <Name>Northwind.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
