@@ -6,5 +6,6 @@ namespace Northwind.Application
     public interface IUIDataProvider
     {
         IList<Customers> GetCustomers();
+        Customers GetCustomer(string CustomerID);
     }
 }

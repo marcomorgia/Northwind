@@ -1,14 +1,13 @@
 ﻿using Northwind.Application;
 using Northwind.Data;
 using System.Collections.Generic;
-using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace Northwind.ViewModel
 {
     public class MainWindowViewModel
     {
         private readonly IUIDataProvider _dataProvider;
-
         public string Name { get { return "Northwind"; } }
         public string ControlPanelName { get { return "Control Panel"; } }
 
@@ -25,9 +24,14 @@ namespace Northwind.ViewModel
             }
         }
 
+        public ObservableCollection<ToolViewModel> Tools { get; set; }
+
         public MainWindowViewModel(IUIDataProvider dataProvider)
         {
             _dataProvider = dataProvider;
+            Tools = new ObservableCollection<ToolViewModel>();
+            Tools.Add(new CustomerDetailsViewModel(_dataProvider, "ALFKI"));
+
         }
         private void GetCustomers()
         {
