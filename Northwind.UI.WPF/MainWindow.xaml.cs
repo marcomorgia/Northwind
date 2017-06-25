@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Northwind.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,18 @@ namespace Northwind.UI.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindowViewModel ViewModel
+        {
+            get { return (MainWindowViewModel)DataContext; }
+        }
         public MainWindow()
         {
             InitializeComponent();
+        }
+       
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.ShowCustomerDetails();
         }
     }
 }

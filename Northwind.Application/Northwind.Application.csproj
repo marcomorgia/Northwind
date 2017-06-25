@@ -41,6 +41,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,19 +51,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataMapper.cs" />
     <Compile Include="IUIDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\CustomerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="UIDataProvider.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Northwind.Data\Northwind.Data.csproj">
-      <Project>{24b116e7-fba4-40f8-aaae-7bf2c2596aa8}</Project>
-      <Name>Northwind.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Service References\CustomerService\Northwind.Application.CustomerService.Customer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CustomerService\Northwind.Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerService\service.wsdl" />
+    <None Include="Service References\CustomerService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CustomerService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CustomerService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CustomerService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CustomerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Northwind.Model\Northwind.Model.csproj">
+      <Project>{ec91f7aa-eb97-4350-a721-59ac798af260}</Project>
+      <Name>Northwind.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Northwind.Service\Northwind.Service.csproj">
+      <Project>{31A22C5C-26E9-471E-9A68-19E51EB9BCC6}</Project>
+      <Name>Northwind.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

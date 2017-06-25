@@ -61,12 +61,21 @@
                         </TextBlock.LayoutTransform>
                     </TextBlock>
                 </Expander.Header>
+                <StackPanel>
                 <ListBox
                     Width="250"
                     Height="180"
                     VerticalAlignment="Top"
                     DisplayMemberPath="CompanyName"
+                    SelectedValuePath="CustomerID"
+                    SelectedValue="{Binding SelectedCustomerID}"
                     ItemsSource="{Binding Customers}" />
+                    <ContentControl Margin="0,3">
+                        <Hyperlink Click="Hyperlink_Click">
+                            <TextBlock Text="Show Details" />
+                        </Hyperlink>
+                    </ContentControl>
+                </StackPanel>
             </Expander>
 
             <TabControl

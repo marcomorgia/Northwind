@@ -3,6 +3,7 @@ using Northwind.Data;
 using System.Collections.Generic;
 using Rhino.Mocks;
 using Northwind.Application;
+using Northwind.Model;
 
 namespace Northwind.ViewModel.Tests
 {
@@ -18,7 +19,7 @@ namespace Northwind.ViewModel.Tests
             IUIDataProvider uiDataProviderMock = MockRepository.GenerateMock<IUIDataProvider>();
 
             MainWindowViewModel target = new MainWindowViewModel(uiDataProviderMock);
-            IList<Customers> customers = target.Customers;
+            IList<Customer> customers = target.Customers;
 
             uiDataProviderMock.VerifyAllExpectations();
 

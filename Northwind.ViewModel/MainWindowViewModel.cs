@@ -1,7 +1,12 @@
 ﻿using Northwind.Application;
 using Northwind.Data;
+using Northwind.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Data;
 
 namespace Northwind.ViewModel
 {
@@ -11,9 +16,9 @@ namespace Northwind.ViewModel
         public string Name { get { return "Northwind"; } }
         public string ControlPanelName { get { return "Control Panel"; } }
 
-        private IList<Customers> _customers;
+        private IList<Customer> _customers;
 
-        public IList<Customers> Customers
+        public IList<Customer> Customers
         {
             get
             {
@@ -25,6 +30,7 @@ namespace Northwind.ViewModel
         }
 
         public ObservableCollection<ToolViewModel> Tools { get; set; }
+        public string SelectedCustomerID { get; set; }
 
         public MainWindowViewModel(IUIDataProvider dataProvider)
         {
@@ -36,6 +42,40 @@ namespace Northwind.ViewModel
         private void GetCustomers()
         {
             _customers = _dataProvider.GetCustomers();
+        }
+
+        public void ShowCustomerDetails()
+        {
+            if (string.IsNullOrEmpty(SelectedCustomerID))
+                throw new InvalidOperationException();
+
+            CustomerDetailsViewModel customerDetailsViewModel = GetCustomerDetailsTool(SelectedCustomerID);
+
+            if (customerDetailsViewModel == null)
+            {
+                customerDetailsViewModel = new CustomerDetailsViewModel(_dataProvider, SelectedCustomerID);
+                Tools.Add(customerDetailsViewModel);
+            }
+
+            SetCurrentTool(customerDetailsViewModel);
+        }
+
+        private void SetCurrentTool(ToolViewModel currentTool)
+        {
+            ICollectionView collectionView = CollectionViewSource.GetDefaultView(Tools);
+
+            if (collectionView != null)
+            {
+                if (collectionView.MoveCurrentTo(currentTool) != true)
+                {
+                    throw new InvalidOperationException();
+                }
+            }
+        }
+
+        private CustomerDetailsViewModel GetCustomerDetailsTool(string selectedCustoerID)
+        {
+            return Tools.OfType<CustomerDetailsViewModel>().FirstOrDefault(c => c.Customer.CustomerID == selectedCustoerID);
         }
     }
 }

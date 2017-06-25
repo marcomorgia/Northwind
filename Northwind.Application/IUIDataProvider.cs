@@ -1,11 +1,13 @@
-﻿using Northwind.Data;
+﻿
+
+using Northwind.Model;
 using System.Collections.Generic;
 
 namespace Northwind.Application
 {
     public interface IUIDataProvider
     {
-        IList<Customers> GetCustomers();
-        Customers GetCustomer(string CustomerID);
+        IList<Model.Customer> GetCustomers();
+        Model.Customer GetCustomer(string CustomerID);
     }
 }

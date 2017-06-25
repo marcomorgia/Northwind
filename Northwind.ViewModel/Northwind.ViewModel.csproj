@@ -38,15 +38,18 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerDetailsViewModel.cs" />
@@ -67,6 +70,14 @@
     <ProjectReference Include="..\Northwind.Data\Northwind.Data.csproj">
       <Project>{24B116E7-FBA4-40F8-AAAE-7BF2C2596AA8}</Project>
       <Name>Northwind.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Northwind.Model\Northwind.Model.csproj">
+      <Project>{EC91F7AA-EB97-4350-A721-59AC798AF260}</Project>
+      <Name>Northwind.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Northwind.Service\Northwind.Service.csproj">
+      <Project>{31A22C5C-26E9-471E-9A68-19E51EB9BCC6}</Project>
+      <Name>Northwind.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

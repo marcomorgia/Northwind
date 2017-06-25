@@ -1,5 +1,5 @@
 ﻿using Northwind.Application;
-using Northwind.Data;
+using Northwind.Model;
 
 namespace Northwind.ViewModel
 {
@@ -7,7 +7,7 @@ namespace Northwind.ViewModel
     {
         private readonly IUIDataProvider _dataProvider;
 
-        public Customers Customer { get; set; }
+        public Customer Customer { get; set; }
         public CustomerDetailsViewModel(IUIDataProvider dataProvider, string customerID)
         {
             _dataProvider = dataProvider;
