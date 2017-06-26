@@ -1,4 +1,5 @@
 ﻿using Northwind.Application;
+using Northwind.Application.CustomerService;
 
 namespace Northwind.ViewModel
 {
@@ -9,10 +10,7 @@ namespace Northwind.ViewModel
         {
             get
             {
-                if (_mainWindowViewModel == null)
-                    _mainWindowViewModel = new MainWindowViewModel(new UIDataProvider());
-
-                return _mainWindowViewModel;
+                return _mainWindowViewModel ?? (_mainWindowViewModel = new MainWindowViewModel(new UIDataProvider(new CustomerServiceClient())));
             }
         }
     }

@@ -10,5 +10,7 @@ namespace Northwind.Service
         IList<Customer> GetCustomers();
         [OperationContract]
         Customer GetCustomer(string customerID);
+        [OperationContract]
+        void Update(Customer customer);
     }
 }

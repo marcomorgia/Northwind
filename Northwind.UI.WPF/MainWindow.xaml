@@ -7,8 +7,8 @@
     xmlns:local="clr-namespace:Northwind.UI.WPF"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
-    Width="525"
-    Height="350"
+    Width="800"
+    Height="550"
     DataContext="{Binding Source={x:Static ViewModel:ViewModelLocator.MainWindowViewModelStatic}}"
     mc:Ignorable="d">
 
@@ -62,14 +62,14 @@
                     </TextBlock>
                 </Expander.Header>
                 <StackPanel>
-                <ListBox
-                    Width="250"
-                    Height="180"
-                    VerticalAlignment="Top"
-                    DisplayMemberPath="CompanyName"
-                    SelectedValuePath="CustomerID"
-                    SelectedValue="{Binding SelectedCustomerID}"
-                    ItemsSource="{Binding Customers}" />
+                    <ListBox
+                        Width="250"
+                        Height="180"
+                        VerticalAlignment="Top"
+                        DisplayMemberPath="CompanyName"
+                        ItemsSource="{Binding Customers}"
+                        SelectedValue="{Binding SelectedCustomerID}"
+                        SelectedValuePath="CustomerID" />
                     <ContentControl Margin="0,3">
                         <Hyperlink Click="Hyperlink_Click">
                             <TextBlock Text="Show Details" />

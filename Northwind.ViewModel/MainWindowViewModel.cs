@@ -1,5 +1,5 @@
-﻿using Northwind.Application;
-using Northwind.Data;
+﻿using GalaSoft.MvvmLight.Command;
+using Northwind.Application;
 using Northwind.Model;
 using System;
 using System.Collections.Generic;
@@ -30,13 +30,40 @@ namespace Northwind.ViewModel
         }
 
         public ObservableCollection<ToolViewModel> Tools { get; set; }
-        public string SelectedCustomerID { get; set; }
+
+        private string _selectedCustomerID;
+        public string SelectedCustomerID
+        {
+            get
+            {
+                return _selectedCustomerID;
+            }
+            set
+            {
+                _selectedCustomerID = value;
+                ShowDetailsCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        private RelayCommand _showDetailsCommand;
+        public RelayCommand ShowDetailsCommand
+        {
+            get
+            {
+                return _showDetailsCommand ?? (_showDetailsCommand = new RelayCommand(ShowCustomerDetails, IsCustomerSelected));
+            }
+        }
+
+        private bool IsCustomerSelected()
+        {
+            return !string.IsNullOrEmpty(SelectedCustomerID);
+        }
 
         public MainWindowViewModel(IUIDataProvider dataProvider)
         {
             _dataProvider = dataProvider;
             Tools = new ObservableCollection<ToolViewModel>();
-            Tools.Add(new CustomerDetailsViewModel(_dataProvider, "ALFKI"));
+            //Tools.Add(new CustomerDetailsViewModel(_dataProvider, "ALFKI"));
 
         }
         private void GetCustomers()
@@ -46,7 +73,7 @@ namespace Northwind.ViewModel
 
         public void ShowCustomerDetails()
         {
-            if (string.IsNullOrEmpty(SelectedCustomerID))
+            if (!IsCustomerSelected())
                 throw new InvalidOperationException();
 
             CustomerDetailsViewModel customerDetailsViewModel = GetCustomerDetailsTool(SelectedCustomerID);

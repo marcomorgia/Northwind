@@ -68,6 +68,10 @@
       <Project>{24B116E7-FBA4-40F8-AAAE-7BF2C2596AA8}</Project>
       <Name>Northwind.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Northwind.Model\Northwind.Model.csproj">
+      <Project>{ec91f7aa-eb97-4350-a721-59ac798af260}</Project>
+      <Name>Northwind.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\NORTHWND.MDF">

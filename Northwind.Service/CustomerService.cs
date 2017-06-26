@@ -1,9 +1,6 @@
 ﻿using Northwind.Data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Northwind.Service
 {
@@ -37,6 +34,23 @@ namespace Northwind.Service
                    CustomerID = c.CustomerID,
                    CompanyName = c.CompanyName
                }).ToList();
+        }
+
+        public void Update(Customer customer)
+        {
+            Data.Customers customerEntity = _northwindEntities.Customers.Single(c => c.CustomerID == customer.CustomerID);
+
+            customerEntity.Address = customer.Address;
+            customerEntity.City = customer.City;
+            customerEntity.CompanyName = customer.CompanyName;
+            customerEntity.ContactName = customer.ContactName;
+            customerEntity.Country = customer.Country;
+            customerEntity.CustomerID = customer.CustomerID;
+            customerEntity.Phone = customer.Phone;
+            customerEntity.PostalCode = customer.PostalCode;
+            customerEntity.Region = customer.Region;
+
+            _northwindEntities.SaveChanges();
         }
     }
 }

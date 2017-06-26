@@ -9,198 +9,29 @@
 //------------------------------------------------------------------------------
 
 namespace Northwind.Application.CustomerService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Customer", Namespace="http://schemas.datacontract.org/2004/07/Northwind.Service")]
-    [System.SerializableAttribute()]
-    public partial class Customer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AddressField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CityField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CompanyNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ContactNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CountryField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CustomerIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PhoneField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PostalCodeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RegionField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Address {
-            get {
-                return this.AddressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
-                    this.AddressField = value;
-                    this.RaisePropertyChanged("Address");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string City {
-            get {
-                return this.CityField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CityField, value) != true)) {
-                    this.CityField = value;
-                    this.RaisePropertyChanged("City");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CompanyName {
-            get {
-                return this.CompanyNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CompanyNameField, value) != true)) {
-                    this.CompanyNameField = value;
-                    this.RaisePropertyChanged("CompanyName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ContactName {
-            get {
-                return this.ContactNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ContactNameField, value) != true)) {
-                    this.ContactNameField = value;
-                    this.RaisePropertyChanged("ContactName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Country {
-            get {
-                return this.CountryField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CountryField, value) != true)) {
-                    this.CountryField = value;
-                    this.RaisePropertyChanged("Country");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CustomerID {
-            get {
-                return this.CustomerIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CustomerIDField, value) != true)) {
-                    this.CustomerIDField = value;
-                    this.RaisePropertyChanged("CustomerID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Phone {
-            get {
-                return this.PhoneField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PhoneField, value) != true)) {
-                    this.PhoneField = value;
-                    this.RaisePropertyChanged("Phone");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PostalCode {
-            get {
-                return this.PostalCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PostalCodeField, value) != true)) {
-                    this.PostalCodeField = value;
-                    this.RaisePropertyChanged("PostalCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Region {
-            get {
-                return this.RegionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RegionField, value) != true)) {
-                    this.RegionField = value;
-                    this.RaisePropertyChanged("Region");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CustomerService.ICustomerService")]
     public interface ICustomerService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomers", ReplyAction="http://tempuri.org/ICustomerService/GetCustomersResponse")]
-        Northwind.Application.CustomerService.Customer[] GetCustomers();
+        Northwind.Service.Customer[] GetCustomers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomers", ReplyAction="http://tempuri.org/ICustomerService/GetCustomersResponse")]
-        System.Threading.Tasks.Task<Northwind.Application.CustomerService.Customer[]> GetCustomersAsync();
+        System.Threading.Tasks.Task<Northwind.Service.Customer[]> GetCustomersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomer", ReplyAction="http://tempuri.org/ICustomerService/GetCustomerResponse")]
-        Northwind.Application.CustomerService.Customer GetCustomer(string customerID);
+        Northwind.Service.Customer GetCustomer(string customerID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomer", ReplyAction="http://tempuri.org/ICustomerService/GetCustomerResponse")]
-        System.Threading.Tasks.Task<Northwind.Application.CustomerService.Customer> GetCustomerAsync(string customerID);
+        System.Threading.Tasks.Task<Northwind.Service.Customer> GetCustomerAsync(string customerID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Update", ReplyAction="http://tempuri.org/ICustomerService/UpdateResponse")]
+        void Update(Northwind.Service.Customer customer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Update", ReplyAction="http://tempuri.org/ICustomerService/UpdateResponse")]
+        System.Threading.Tasks.Task UpdateAsync(Northwind.Service.Customer customer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -230,20 +61,28 @@ namespace Northwind.Application.CustomerService {
                 base(binding, remoteAddress) {
         }
         
-        public Northwind.Application.CustomerService.Customer[] GetCustomers() {
+        public Northwind.Service.Customer[] GetCustomers() {
             return base.Channel.GetCustomers();
         }
         
-        public System.Threading.Tasks.Task<Northwind.Application.CustomerService.Customer[]> GetCustomersAsync() {
+        public System.Threading.Tasks.Task<Northwind.Service.Customer[]> GetCustomersAsync() {
             return base.Channel.GetCustomersAsync();
         }
         
-        public Northwind.Application.CustomerService.Customer GetCustomer(string customerID) {
+        public Northwind.Service.Customer GetCustomer(string customerID) {
             return base.Channel.GetCustomer(customerID);
         }
         
-        public System.Threading.Tasks.Task<Northwind.Application.CustomerService.Customer> GetCustomerAsync(string customerID) {
+        public System.Threading.Tasks.Task<Northwind.Service.Customer> GetCustomerAsync(string customerID) {
             return base.Channel.GetCustomerAsync(customerID);
+        }
+        
+        public void Update(Northwind.Service.Customer customer) {
+            base.Channel.Update(customer);
+        }
+        
+        public System.Threading.Tasks.Task UpdateAsync(Northwind.Service.Customer customer) {
+            return base.Channel.UpdateAsync(customer);
         }
     }
 }
